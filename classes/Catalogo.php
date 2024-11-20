@@ -23,7 +23,7 @@ public function catalogo_completo(): array {
     
    $conexion = (new Conexion())->getConexion();
 
-   $query = "SELECT * FROM comics";
+   $query = "SELECT * FROM catalogo";
 
    $PDOStatment = $conexion->prepare($query);
 
@@ -87,25 +87,18 @@ public function producto_x_id(int $idProducto){
 //Devuelve los productos destacados
 
 public function destacado(int $destacado) {
-            
-               
     $conexion = (new Conexion())->getConexion();
-
-    $query = "SELECT * FROM catalogo WHERE destacado = 1";
-
+    $query = "SELECT * FROM catalogo WHERE destacado = :destacado";
     $PDOStatment = $conexion->prepare($query);
-
     $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
-    $PDOStatment->execute();
+    $PDOStatment->execute(['destacado' => $destacado]);
 
-    $resultado = $PDOStatment->fetch();
-
-    if(!$resultado){
-        return null;
-    }
-
-    return $resultado;
+    $resultado = $PDOStatment->fetchAll();
+    
+    // Devolvemos un array vacío si no hay resultados
+    return $resultado ?: [];
 }
+
 
 // Devuelve el nombre de un producto y su modelo
 

@@ -13,22 +13,24 @@ $productos = $miObjetoBici->catalogo_completo();
 
 <div class="mt-4 mb-5 border border-4 border-success rounded-5" id="carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-    <div class="carousel-item active">
-            <img src="img/BiciStore_cover5.jpeg" class="rounded-5 d-block w-100" alt="imagen con bici1">
-        </div>
-        <div class="carousel-item">
-            <img src="img/BiciStore_cover6.jpeg" class="rounded-5 d-block w-100" alt="imagen con bici2">
-        </div>
-        <div class="carousel-item">
-            <img src="img/bicistore_header1.jpeg" class="rounded-5 d-block w-100" alt="imagen con bici3">
-        </div>
-        <div class="carousel-item">
-            <img src="img/bicistore_header1.jpg" class="rounded-5 d-block w-100" alt="imagen con bici4">
-        </div>
-
-        </div>
+        <?php 
+        $imagenes = [
+            'BiciStore_cover4.jpeg',
+            'BiciStore_cover3.jpeg',
+            'bicistore_header1.jpeg',
+            'bicistore_header2.jpg'
+        ];
+        
+        foreach ($imagenes as $index => $imagen) {
+            $activeClass = ($index === 0) ? 'active' : ''; // La primera imagen será activa
+            echo "<div class='carousel-item $activeClass'>";
+            echo "<img src='img/$imagen' class='rounded-5 d-block w-100' alt='Imagen de bicicletas'>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </div>
+
 
 <div class="row">
 
