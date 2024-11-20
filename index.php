@@ -1,6 +1,6 @@
 <?php
 
-require_once "libraries/funciones.php";
+require_once 'functions/autoload.php';
 
 $secciones_validas = [
      "home" => [
@@ -71,9 +71,9 @@ $secciones_validas = [
     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Catalogo</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="index.php?sec=catalogo">Todos</a></li>
-      <li><a class="dropdown-item" href="index.php?sec=marca&mar=massi">Massi</a></li>
       <li><a class="dropdown-item" href="index.php?sec=marca&mar=olmo">Olmo</a></li>
-      <li><a class="dropdown-item" href="index.php?sec=marca&mar=ford">Ford</a></li>
+      <li><a class="dropdown-item" href="index.php?sec=marca&mar=mazzi">Mazzi</a></li>
+      <li><a class="dropdown-item" href="index.php?sec=marca&mar=lamborghini">Lamborghini</a></li>
     </ul>
   </li>
         <li class="nav-item">
