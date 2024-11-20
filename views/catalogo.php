@@ -1,9 +1,8 @@
 <?php
 
-$id_producto = $_GET ['idProducto'] ?? FALSE;
 
 $miObjetoBici = new Catalogo();
-$productos = $miObjetoBici->catalogo_x_marca($id_producto);
+$productos = $miObjetoBici->catalogo_completo();
 
 
 
@@ -41,7 +40,7 @@ $productos = $miObjetoBici->catalogo_x_marca($id_producto);
             <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
                 <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
-                <p class="card-text"><?=mb_substr($bici->getImagen(), 0 , 30)?></p>
+                <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 30)?></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Rodado <?=$bici->getRodado()?></li>

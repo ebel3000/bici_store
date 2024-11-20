@@ -1,15 +1,10 @@
 <?php
 
-/* require de productos */
-require_once "libraries/productos.php";
+$id = $_GET['mar'] ?? FALSE;
 
-$biciSeleccionada = $_GET['mar'] ?? FALSE;
+$miObjetobici = new Marca();
 
-
-$productos = producto_x_marca($biciSeleccionada);
-
-$titulo  =  $biciSeleccionada ? ucwords($biciSeleccionada ) : false
-
+$bici = $miObjetobici->get_x_id($id);
 
 ?>
 
@@ -22,18 +17,18 @@ $titulo  =  $biciSeleccionada ? ucwords($biciSeleccionada ) : false
     
     <div class="col-3">
         <div class="card border-3 border border-success rounded-5 mb-3">
-            <img src="img/bicis/<?=$bici['portada'] ?>" class="card-img-top rounded-5" alt="">
+            <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-6 m-0 fw-bold text-success"><?=$bici['marca'] ?> Modelo <?=$bici['modelo'] ?></p>
-                <p class="card-text"><?= recortar_palabras($bici['bajada'], 6) ?></p>
+                <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
+                <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 30)?></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Rodado <?=$bici['rodado'] ?></li>
-                <li class="list-group-item">Color <?=$bici['color'] ?></li>
+                <li class="list-group-item">Rodado <?=$bici->getRodado()?></li>
+                <li class="list-group-item">Color <?=$bici->getColor()?></li>
             </ul>
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-3 mb-3 fw-bold text-success">$<?=$bici['precio'] ?></p>
-                <a href="index.php?sec=producto&id=<?= $bici ['id']?> " class="btn btn-outline-success btn-sm w-50 rounded-5 fw-bold" >VER MÁS</a>
+                <p class="fs-3 mb-3 fw-bold text-success"><?=$bici->getPrecio()?></p>
+                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn btn-outline-success btn-sm w-50 rounded-5 fw-bold" >VER MÁS</a>
             </div>
 
         </div>
