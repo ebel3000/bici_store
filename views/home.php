@@ -1,13 +1,7 @@
 <?php
-
-/* require de productos */
-require_once "libraries/productos.php";
-
-
-
-$productos = producto_destacado();
-
-
+$id = $_GET['id'] ?? FALSE;
+$miObjetoBici = new Catalogo();
+$productos = $miObjetoBici->destacado($id);
 ?>
 
 <div class="mt-5 mb-2">
@@ -44,18 +38,18 @@ $productos = producto_destacado();
 
         <div class="col-3 mt-4 mb-5">
             <div class="card mb-3 rounded-5 border border-success border-2">
-                <img src="img/bicis/<?= $bici['portada'] ?>" class="card-img-top rounded-5" alt="">
+                <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
                 <div class="card-body" style="height:125px; overflow: hidden;">
-                    <p class="fs-6 m-0 fw-bold text-primary"><?= $bici['marca'] ?> Modelo <?= $bici['modelo'] ?></p>
-                    <p class="card-text"><?= recortar_palabras($bici['bajada'], 6) ?></p>
+                    <p class="fs-6 m-0 fw-bold text-primary"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
+                    <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 30)?></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Rodado <?= $bici['rodado'] ?></li>
-                    <li class="list-group-item">Color <?= $bici['color'] ?></li>
+                    <li class="list-group-item">Rodado <?= $bici->getRodado?></li>
+                    <li class="list-group-item">Color <?= $bici->getColor?></li>
                 </ul>
                 <div class="card-body">
-                    <p class="fs-3 mb-3 fw-bold text-success text-center">$<?= $bici['precio'] ?></p>
-                    <a href="index.php?sec=producto&id=<?= $bici['id'] ?> " class="btn btn-dark w-100 fw-bold rounded-5">VER MÁS</a>
+                    <p class="fs-3 mb-3 fw-bold text-success text-center">$<?= $bici->getPrecio?></p>
+                    <a href="index.php?sec=producto&id=<?= $bici->getId?> " class="btn btn-dark w-100 fw-bold rounded-5">VER MÁS</a>
                 </div>
 
             </div>

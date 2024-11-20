@@ -83,6 +83,30 @@ public function producto_x_id(int $idProducto){
 
 }
 
+
+//Devuelve los productos destacados
+
+public function destacado(int $destacado) {
+            
+               
+    $conexion = (new Conexion())->getConexion();
+
+    $query = "SELECT * FROM catalogo WHERE destacado = 1";
+
+    $PDOStatment = $conexion->prepare($query);
+
+    $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatment->execute();
+
+    $resultado = $PDOStatment->fetch();
+
+    if(!$resultado){
+        return null;
+    }
+
+    return $resultado;
+}
+
 // Devuelve el nombre de un producto y su modelo
 
 /* public function getTitulo($aliasPrimero = false)
@@ -100,7 +124,7 @@ public function producto_x_id(int $idProducto){
  */
 
 
- 
+
 /**
  * Get the value of id
  */ 
