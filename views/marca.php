@@ -1,14 +1,14 @@
 <?php
 
-$id = $_GET['mar'] ?? FALSE;
+$marcaNombre = $_GET['mar'] ?? FALSE;
 
-$miObjetobici = new Marca();
+$miObjetobici = new Catalogo();
 
-$bici = $miObjetobici->get_x_id($id);
+$bici = $miObjetobici->catalogo_x_marca($marcaNombre);
 
 ?>
 
-<h1 class="text-center my-5 display-4 fw-bold" >Catálogo por marca <?=  $titulo ?> </h1>
+<h1 class="text-center my-5 display-4 fw-bold" >Catálogo por <?=  $titulo ?> </h1>
 
 <div class="row">
 
@@ -19,7 +19,7 @@ $bici = $miObjetobici->get_x_id($id);
         <div class="card border-3 border border-success rounded-5 mb-3">
             <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
+                <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getNombre()?> Modelo <?=$bici->getModelo()?></p>
                 <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 30)?></p>
             </div>
             <ul class="list-group list-group-flush">

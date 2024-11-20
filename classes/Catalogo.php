@@ -39,7 +39,7 @@ public function catalogo_completo(): array {
 
 
 
-  // Devuelve el catalogo de productos de un personaje en particular 
+  // Devuelve el catalogo de productos de una marca en particular 
   public function catalogo_x_marca(int $marca_id) {
     $catalogo= [];
         

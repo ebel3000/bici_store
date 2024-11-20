@@ -73,6 +73,9 @@ if (!array_key_exists($seccion, $secciones_validas)) {
             <a class="nav-link" href="index.php?sec=catalogo">Catalogo</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="index.php?sec=marca">Marcas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="index.php?sec=taller">Taller</a>
           </li>
           <li class="nav-item">
