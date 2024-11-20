@@ -61,7 +61,7 @@ public function producto_x_id(int $idProducto){
 
     $conexion = (new Conexion())->getConexion();
 
-    $query = "SELECT * FROM comics WHERE id = :idProducto";
+    $query = "SELECT * FROM catalogo WHERE id = :idProducto";
 
     $PDOStatment = $conexion->prepare($query);
 
@@ -83,6 +83,24 @@ public function producto_x_id(int $idProducto){
 
 }
 
+// Devuelve el nombre de un producto y su modelo
+
+/* public function getTitulo($aliasPrimero = false)
+{
+
+    if ($aliasPrimero) {
+        $result = "$this->nombre ($this->nombre)";
+    } else {
+        $result = "$this->nombre ($this->alias)";
+    }
+
+    return $result;
+}
+
+ */
+
+
+ 
 /**
  * Get the value of id
  */ 

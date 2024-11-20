@@ -68,7 +68,7 @@ $secciones_validas = [
           <a class="nav-link" aria-current="page" href="index.php?sec=home">Home</a>
         </li>
         <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Catalogo</a>
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="catalogo.php" role="button" aria-expanded="false">Catalogo</a>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="index.php?sec=catalogo">Todos</a></li>
       <li><a class="dropdown-item" href="index.php?sec=marca&mar=olmo">Olmo</a></li>

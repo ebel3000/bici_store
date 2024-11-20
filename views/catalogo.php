@@ -1,10 +1,9 @@
 <?php
 
-/* Require de productos */
+$id_producto = $_GET ['idProducto'] ?? FALSE;
 
-require_once "libraries/productos.php";
-
-$productos = catalogo_todas_bicis();
+$miObjetoBici = new Catalogo();
+$productos = $miObjetoBici->catalogo_x_marca($id_producto);
 
 
 
@@ -39,18 +38,18 @@ $productos = catalogo_todas_bicis();
     
     <div class="col-3">
         <div class="card border border-2 border-success rounded-5 mb-3">
-            <img src="img/bicis/<?=$bici['portada'] ?>" class="card-img-top rounded-5" alt="">
+            <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-6 m-0 fw-bold text-success"><?=$bici['marca'] ?> Modelo <?=$bici['modelo'] ?></p>
-                <p class="card-text"><?= recortar_palabras($bici['bajada'], 6) ?></p>
+                <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
+                <p class="card-text"><?=mb_substr($bici->getImagen(), 0 , 30)?></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Rodado <?=$bici['rodado'] ?></li>
-                <li class="list-group-item">Color <?=$bici['color'] ?></li>
+                <li class="list-group-item">Rodado <?=$bici->getRodado()?></li>
+                <li class="list-group-item">Color <?=$bici->getColor()?></li>
             </ul>
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-3 mb-3 fw-bold text-success">$<?=$bici['precio'] ?></p>
-                <a href="index.php?sec=producto&id=<?= $bici ['id']?> " class="btn btn-outline-success btn-sm w-50 fw-bold" >VER MÁS</a>
+                <p class="fs-3 mb-3 fw-bold text-success"><?=$bici->getPrecio()?></p>
+                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn btn-outline-success btn-sm w-50 fw-bold" >VER MÁS</a>
             </div>
 
         </div>
