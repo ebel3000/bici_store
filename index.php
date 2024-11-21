@@ -69,12 +69,25 @@ if (!array_key_exists($seccion, $secciones_validas)) {
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.php?sec=home">Home</a>
           </li>
+
+
           <li class="nav-item">
             <a class="nav-link" href="index.php?sec=catalogo">Catalogo</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?sec=marca">Marcas</a>
-          </li>
+
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Marcas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index.php?sec=marca&id=1">Olmo</a></li>
+            <li><a class="dropdown-item" href="index.php?sec=marca&id=2">Mazzi</a></li>
+            <li><a class="dropdown-item" href="index.php?sec=marca&id=3">Lamborghini</a></li>
+            
+          </ul>
+        </li>
+
           <li class="nav-item">
             <a class="nav-link" href="index.php?sec=taller">Taller</a>
           </li>
