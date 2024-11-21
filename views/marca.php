@@ -6,13 +6,13 @@ $miObjetobici = new Catalogo();
 
 $productos = $miObjetobici->catalogo_x_marca($marca_id);
 
-
+$Titulomarca = (new Marca())->get_x_id($marca_id);
 
 
 
 ?>
 
-<h1 class="text-center my-5 display-4 fw-bold" >Catálogo por <?=  $titulo ?> </h1>
+<h1 class="text-center my-5 display-4 fw-bold" >Catálogo por <?= $Titulomarca->getNombre()?> </h1>
 
 <div class="row">
 
