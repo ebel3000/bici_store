@@ -1,7 +1,6 @@
 <?php
-$destacado = isset($_GET['destacado']) ? filter_var($_GET['destacado'], FILTER_VALIDATE_BOOLEAN) : false;
 $miObjetoBici = new Catalogo();
-$productos = $miObjetoBici->destacado($destacado);
+$productos = $miObjetoBici->destacado();
 ?>
 
 <div class="mt-5 mb-2">
@@ -42,7 +41,7 @@ $productos = $miObjetoBici->destacado($destacado);
             <div class="card mb-3 rounded-5 border border-success border-2">
                 <img src="img/bicis/<?= $bici->getImagen() ?>" class="card-img-top rounded-5" alt="">
                 <div class="card-body" style="height:125px; overflow: hidden;">
-                    <p class="fs-6 m-0 fw-bold text-primary"><?= $bici->getMarca() ?> Modelo <?= $bici->getModelo() ?></p>
+                    <p class="fs-6 m-0 fw-bold text-primary"><?= $bici->getproductosMarca()?> Modelo <?= $bici->getModelo() ?></p>
                     <p class="card-text"><?= mb_substr($bici->getBajada(), 0, 30) ?></p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -51,8 +50,8 @@ $productos = $miObjetoBici->destacado($destacado);
 
                 </ul>
                 <div class="card-body">
-                    <p class="fs-3 mb-3 fw-bold text-success text-center">$<?= $bici->getPrecio ?></p>
-                    <a href="index.php?sec=producto&id=<?= $bici->getId() ?>" class="btn btn-dark w-100 fw-bold rounded-5" aria-label="Ver más detalles del producto <?= $bici->getMarca() ?> <?= $bici->getModelo() ?>">
+                    <p class="fs-3 mb-3 fw-bold text-success text-center"><?= $bici->getPrecio() ?></p>
+                    <a href="index.php?sec=producto&id=<?= $bici->getId() ?>" class="btn btn-dark w-100 fw-bold rounded-5" aria-label="Ver más detalles del producto <?= $bici->getproductosMarca() ?> <?= $bici->getModelo() ?>">
                         VER MÁS
                     </a>
 

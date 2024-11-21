@@ -19,7 +19,7 @@ protected $destacado;
 
 // Devuelve el catologo Completo
 public function catalogo_completo(): array {
-    $catalogo= [];
+   $catalogo = [];
     
    $conexion = (new Conexion())->getConexion();
 
@@ -86,17 +86,17 @@ public function producto_x_id(int $idProducto){
 
 //Devuelve los productos destacados
 
-public function destacado(int $destacado) {
+public function destacado() {
     $conexion = (new Conexion())->getConexion();
-    $query = "SELECT * FROM catalogo WHERE destacado = :destacado";
+    $query = "SELECT * FROM catalogo WHERE destacado = 1";
     $PDOStatment = $conexion->prepare($query);
     $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
-    $PDOStatment->execute(['destacado' => $destacado]);
+    $PDOStatment->execute();
 
     $resultado = $PDOStatment->fetchAll();
     
     // Devolvemos un array vacío si no hay resultados
-    return $resultado ?: [];
+    return $resultado;
 }
 
 
@@ -116,8 +116,11 @@ public function destacado(int $destacado) {
 
  */
 
-
-
+ public function getproductosMarca(){
+    $marca_id = (new Marca())->get_x_id($this->marca_id);
+    $nombre = $marca_id->getNombre();
+    return $nombre;
+  }
 /**
  * Get the value of id
  */ 

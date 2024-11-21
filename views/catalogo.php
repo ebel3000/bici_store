@@ -8,7 +8,7 @@ $productos = $miObjetoBici->catalogo_completo();
 
 ?>
 <div class="mt-5 mb-2">
-<h1 class="text-center fw-bold display-4" >Catálogo</h1>
+<h1 class="text-center fw-bold display-4">Catálogo</h1>
 </div>
 
 <div class="mt-4 mb-5 border border-4 border-success rounded-5" id="carousel" class="carousel slide" data-bs-ride="carousel">
@@ -41,7 +41,7 @@ $productos = $miObjetoBici->catalogo_completo();
         <div class="card border border-2 border-success rounded-5 mb-3">
             <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
-                <p class="fs-6 m-0 fw-bold text-success"><?=$bici->getMarca()?> Modelo <?=$bici->getModelo()?></p>
+                <p class="fs-6 m-0 fw-bold text-success"><?=$bici-> getproductosMarca()?> Modelo <?=$bici->getModelo()?></p>
                 <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 30)?></p>
             </div>
             <ul class="list-group list-group-flush">
