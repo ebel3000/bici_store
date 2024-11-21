@@ -7,6 +7,7 @@ $productos = $miObjetoBici->catalogo_completo();
 
 
 ?>
+
 <div class="mt-5 mb-2">
 <h1 class="text-center fw-bold display-4">Catálogo</h1>
 </div>

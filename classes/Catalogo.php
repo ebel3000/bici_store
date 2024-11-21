@@ -116,6 +116,8 @@ public function destacado() {
 
  */
 
+ 
+
  public function getproductosMarca(){
     $marca_id = (new Marca())->get_x_id($this->marca_id);
     $nombre = $marca_id->getNombre();

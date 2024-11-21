@@ -1,10 +1,10 @@
 <?php
 
-$marcaNombre = $_GET['mar'] ?? FALSE;
+$marcaId = $_GET['mar'] ?? FALSE;
 
 $miObjetobici = new Catalogo();
 
-$bici = $miObjetobici->catalogo_x_marca($marcaNombre);
+$productos = $miObjetobici->catalogo_x_marca($marcaId);
 
 ?>
 
