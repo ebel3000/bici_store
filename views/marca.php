@@ -12,7 +12,9 @@ $Titulomarca = (new Marca())->get_x_id($marca_id);
 
 ?>
 
-<h1 class="text-center my-5 display-4 fw-bold" >Catálogo por <?= $Titulomarca->getNombre()?> </h1>
+<div class="m-5">
+<h1 class="text-center fw-bold display-4">Catálogo por <?= $Titulomarca->getNombre()?></h1>
+</div>
 
 <div class="row">
 
@@ -20,13 +22,13 @@ $Titulomarca = (new Marca())->get_x_id($marca_id);
     <?php foreach ($productos as $bici) { ?>
     
     <div class="col-3">
-        <div class="card border-3 border border-success rounded-5 mb-3">
+        <div class="card border border-2 border-success rounded-5 mb-3">
             <img src="img/bicis/<?=$bici->getImagen()?>" class="card-img-top rounded-5" alt="">
             <div class="card-body" style="height:125px; overflow: hidden;">
                 <p class="fs-6 m-0 fw-bold text-success"><?=$bici-> getproductosMarca()?> Modelo <?=$bici->getModelo()?></p>
-                <p class="card-text">ver</p>
-            </div>
-                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn btn-outline-success btn-sm w-50 rounded-5 fw-bold" >VER MÁS</a>
+                <p class="card-text"><?=mb_substr($bici->getBajada(), 0 , 20)?>...</p>            
+                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn rounded rounded-pill btn-outline-success btn-sm w-50 fw-bold" >VER MÁS</a>
+                </div>
             </div>
 
         </div>

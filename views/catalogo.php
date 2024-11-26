@@ -51,7 +51,7 @@ $productos = $miObjetoBici->catalogo_completo();
             </ul>
             <div class="card-body" style="height:125px; overflow: hidden;">
                 <p class="fs-3 mb-3 fw-bold text-success"><?=$bici->getPrecio()?></p>
-                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn btn-outline-success btn-sm w-50 fw-bold" >VER MÁS</a>
+                <a href="index.php?sec=producto&id=<?=$bici->getId()?>" class="btn btn-outline-success rounded rounded-pill btn-sm w-50 fw-bold" >VER MÁS</a>
             </div>
 
         </div>

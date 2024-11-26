@@ -116,6 +116,106 @@ public function destacado() {
 
  */
 
+
+
+  //Metodos
+        /* Metodo para insertar un nuevo Comic en la BD */
+
+        public function insert($marca_id, $modelo, $rodado, $color, $bajada, $precio, $destacado, $id)
+         {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "INSERT INTO catalogo VALUES(null, :marca_id, :modelo, :rodado, :color, :bajada, :precio, :destacado)";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'id' => $id,
+               'marca_id' => $marca_id,
+               'modelo' => $modelo,
+               'rodado' => $rodado,
+               'color' => $color,
+               'bajada' => $bajada,
+               'precio' => $precio,
+               'destacado' => $destacado
+         ]
+        );
+    }
+
+
+    
+/* Editar un comic */
+
+public function edit($marca_id, $modelo, $rodado, $color, $bajada, $precio, $destacado, $id)
+{
+
+$conexion = (new Conexion())->getConexion();
+
+$query = "UPDATE catalogo SET 
+        marca_id = :marca_id,
+        modelo = :modelo,
+        rodado = :rodado,
+        color = :color,
+        bajada = :bajada,
+        precio = :precio,
+        destacado = :destacado
+        WHERE id = :id
+";
+
+$PDOStatment = $conexion->prepare($query);
+
+$PDOStatment->execute(
+   [
+        'id' => $id,
+       'marca_id' => $marca_id,
+       'modelo' => $modelo,
+       'rodado' => $rodado,
+       'color' => $color,
+       'bajada' => $bajada,
+       'precio' => $precio,
+       'destacado' => $destacado
+ ]
+);
+}
+
+  public function reemplazar_imagen($imagen, $id)
+    {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "UPDATE catalogo SET imagen = :imagen WHERE id = :id";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'id' => $id,
+                'imagen' => $imagen
+                
+            ]
+        );
+    }
+
+    /* Borrar Comic  */
+
+    public function delete() {
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "DELETE FROM catalogo WHERE id  = ?";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute([$this->id]);
+    }
+
+    
+
+
+
+     
+
  
 
  public function getproductosMarca(){
