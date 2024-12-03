@@ -121,24 +121,24 @@ public function destacado() {
   //Metodos
         /* Metodo para insertar un nuevo Comic en la BD */
 
-        public function insert($marca_id, $modelo, $rodado, $color, $bajada, $precio, $destacado, $id)
+        public function insert($marca_id, $modelo, $rodado, $color, $bajada, $precio, $imagen, $destacado)
          {
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "INSERT INTO catalogo VALUES(null, :marca_id, :modelo, :rodado, :color, :bajada, :precio, :destacado)";
+        $query = "INSERT INTO catalogo VALUES(null, :marca_id, :modelo, :rodado, :color, :bajada, :precio,:imagen, :destacado)";
 
         $PDOStatment = $conexion->prepare($query);
 
         $PDOStatment->execute(
             [
-                'id' => $id,
                'marca_id' => $marca_id,
                'modelo' => $modelo,
                'rodado' => $rodado,
                'color' => $color,
                'bajada' => $bajada,
                'precio' => $precio,
+               'imagen' => $imagen,
                'destacado' => $destacado
          ]
         );
