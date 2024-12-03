@@ -20,6 +20,7 @@ class Autenticacion
                 $datosLogin['username'] = $datosUsuario->getNombre_usuario();
                 $datosLogin['id'] = $datosUsuario->getId();
                 $_SESSION['loggedIn'] = $datosLogin;
+                (new Alerta())->add_alerta('success', 'Usted ingresó correctamente');
                 return TRUE;
             } else {
                 (new Alerta())->add_alerta('danger', 'El password ingresado no es correcto');               

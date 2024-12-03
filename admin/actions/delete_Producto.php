@@ -16,6 +16,8 @@
 
           $bici->delete();
 
+          (new Alerta()) -> add_alerta("danger", "Se ha borrado correctamente");
+
          
             header("Location: ../index.php?sec=admin_catalogo");
     } catch (\Exception $e) {

@@ -40,6 +40,9 @@
             $postData['destacado'],
             $id);
 
+            (new Alerta()) -> add_alerta("warning", "Se ha editado correctamente");
+
+
         header("Location: ../index.php?sec=admin_catalogo");
     } catch (\Exception $e) {
         die("No se pudo editar el producto".  $e);

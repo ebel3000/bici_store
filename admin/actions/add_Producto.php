@@ -27,6 +27,8 @@
         
         );
 
+        (new Alerta()) -> add_alerta("success", "Se ha cargado correctamente");
+
         header("Location: ../index.php?sec=admin_catalogo");
     } catch (\Exception $e) {
         die("No se pudo cargar el catálogo".  $e);

@@ -12,6 +12,11 @@ $bici = (new Catalogo())->catalogo_completo();
     <div class="col">
         <h1 class="text-center mb-5">Administracion de Catálogo</h1>
         <div class="row mb-5 d-flex align-items-center">
+
+            <div>
+                <?= (new Alerta())->get_alertas() ?>
+            </div>
+            
             <table class="table">
                 <thead>
                     <tr>
@@ -27,26 +32,26 @@ $bici = (new Catalogo())->catalogo_completo();
                 </thead>
                 <tbody>
 
-                <?php  foreach($bici as $c){  ?>
+                    <?php foreach ($bici as $c) {  ?>
 
-                    <tr>
-                        <td><img src="../img/bicis/<?=  $c->getImagen() ?>" class="img-fluid rounded" alt=""></td>
-                        <th scope="row"><?=  $c->getproductosMarca() ?></th>
-                        <td><?=  $c->getModelo() ?></td>
-                        <td><?=  $c->getRodado() ?></td>
-                        <td><?=  $c->getColor() ?></td>
-                        <td><?=  $c->getBajada() ?></td>
-                        <td><?=  $c->getPrecio() ?></td>
-                        <td><?=  $c->getDestacado() ?></td>
-                        <td>
-                            <a class="btn btn-warning" href="index.php?sec=edit_productos&id=<?= $c->getId() ?>">Editar</a>
+                        <tr>
+                            <td><img src="../img/bicis/<?= $c->getImagen() ?>" class="img-fluid rounded" alt=""></td>
+                            <th scope="row"><?= $c->getproductosMarca() ?></th>
+                            <td><?= $c->getModelo() ?></td>
+                            <td><?= $c->getRodado() ?></td>
+                            <td><?= $c->getColor() ?></td>
+                            <td><?= $c->getBajada() ?></td>
+                            <td><?= $c->getPrecio() ?></td>
+                            <td><?= $c->getDestacado() ?></td>
+                            <td>
+                                <a class="btn btn-warning" href="index.php?sec=edit_productos&id=<?= $c->getId() ?>">Editar</a>
 
-                            <a class="btn btn-danger mt-2" href="index.php?sec=delete_productos&id=<?= $c->getId() ?>">Eliminar</a>
-                        </td>
-                    </tr>
+                                <a class="btn btn-danger mt-2" href="index.php?sec=delete_productos&id=<?= $c->getId() ?>">Eliminar</a>
+                            </td>
+                        </tr>
 
-                <?php  } ?>   
-                    
+                    <?php  } ?>
+
                 </tbody>
             </table>
 
