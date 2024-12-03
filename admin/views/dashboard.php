@@ -1,21 +1,18 @@
-<div class="row mt-5 justify-content-center">
-    <div class="col col-md-5">
-<?=(new Alerta())->get_alertas()?>
-</div>
-</div>
-
-<div class="d-flex justify-content-center align-items-center  p-5">
+<div class="d-flex justify-content-center align-items-center p-5">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
             <div class="col text-center">
-                            
 
-                <h1 class="display-4 mb-5 fw-bold text-primary">PANEL DE CONTROL</h1>
-                <h2 class="text-secondary">Bienvenido Administrador:</h2> 
-                <h2 class= "fw-bold text-primary"> "<?= $userData['username'] ?>"</h2>
-            </div>
+
+
+                <h1 class="mt-2 fw-bold text-primary">PANEL DE CONTROL</h1>
+
+                <div class="d-flex justify-content-center">
+                    <?= (new Alerta())->get_alertas() ?>
+                </div>
+                <h2 class="text-secondary">Bienvenido Administrador:</h2>
+                <h2 class="fw-bold text-primary m-4"> <span class="badge bg-dark text-white rounded-pill px-3 py-2">"<?= $userData['username'] ?>"</span> </h2>            </div>
         </div>
     </div>
 </div>
-
 

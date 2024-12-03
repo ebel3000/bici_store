@@ -8,10 +8,12 @@ $marca_id = (new Marca())->lista_completa();
 
 ?>
 
-<div>
-                <?= (new Alerta())->get_alertas() ?>
-            </div>
-            
+<div class="row mt-5 justify-content-center">
+    <div class="col col-md-5">
+        <?= (new Alerta())->get_alertas() ?>
+    </div>
+</div>
+
 <div class="row m-5">
     <div class="col">
         <h1 class="text-center mb-5">Editar Producto</h1>

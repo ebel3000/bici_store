@@ -10,14 +10,16 @@ $bici = (new Catalogo())->catalogo_completo();
 
 <div class="row my-5">
     <div class="col">
-        <h1 class="text-center mb-5">Administracion de Catálogo</h1>
+        <h1 class="display-5 fw-bold text-primary text-center mb-3">Administracion de Catálogo</h1>
         <div class="row mb-5 d-flex align-items-center">
 
-            <div>
-                <?= (new Alerta())->get_alertas() ?>
+            <div class="row mt-5 justify-content-center">
+                <div class="col col-md-5">
+                    <?= (new Alerta())->get_alertas() ?>
+                </div>
             </div>
-            
-            <table class="table">
+
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col" width="15%">Imagen</th>
@@ -35,7 +37,7 @@ $bici = (new Catalogo())->catalogo_completo();
                     <?php foreach ($bici as $c) {  ?>
 
                         <tr>
-                            <td><img src="../img/bicis/<?= $c->getImagen() ?>" class="img-fluid rounded" alt=""></td>
+                            <td><img src="../img/bicis/<?= $c->getImagen() ?>" class="img-fluid border border-2 border-success rounded-5" alt=""></td>
                             <th scope="row"><?= $c->getproductosMarca() ?></th>
                             <td><?= $c->getModelo() ?></td>
                             <td><?= $c->getRodado() ?></td>
@@ -44,9 +46,9 @@ $bici = (new Catalogo())->catalogo_completo();
                             <td><?= $c->getPrecio() ?></td>
                             <td><?= $c->getDestacado() ?></td>
                             <td>
-                                <a class="btn btn-warning" href="index.php?sec=edit_productos&id=<?= $c->getId() ?>">Editar</a>
+                                <a class="btn btn-warning w-100" href="index.php?sec=edit_productos&id=<?= $c->getId() ?>">Editar</a>
 
-                                <a class="btn btn-danger mt-2" href="index.php?sec=delete_productos&id=<?= $c->getId() ?>">Eliminar</a>
+                                <a class="btn btn-danger mt-2 w-100" href="index.php?sec=delete_productos&id=<?= $c->getId() ?>">Eliminar</a>
                             </td>
                         </tr>
 
