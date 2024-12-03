@@ -7,7 +7,7 @@
 </div>    
 
         <div class="col-6">
-            <img class="w-100 rounded-5 border border-4 border-success" src="img/bicis/bicistore_bici10.jpeg" alt="">
+            <img class="w-100 rounded-5 border border-4 border-success" src="img/exito.png" alt="">
         </div>
         <div class="col-6">
              <form action="datos/procesar_datos.php" method="POST">

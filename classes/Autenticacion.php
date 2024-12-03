@@ -22,9 +22,13 @@ class Autenticacion
                 $_SESSION['loggedIn'] = $datosLogin;
                 return TRUE;
             } else {
-                return False;
+                (new Alerta())->add_alerta('danger', 'El password ingresado no es correcto');               
+                               return False;
+
             }
         } else {
+            (new Alerta())->add_alerta('warning', 'El ususario ingresado no existe en la base de datos');                return False;
+
             return False;
         }
     }
